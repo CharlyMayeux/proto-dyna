@@ -1,0 +1,56 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "CMayeux - Proto - Dyna",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers-community/npm-features/prettier:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"waderyan.gitblame",
+				"esbenp.prettier-vscode",
+				"Angular.ng-template"
+			],
+            "settings": {
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode",
+                },
+            "[html]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+              },
+              "[typescript]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+              },
+              "editor.formatOnSave": true,
+              "editor.codeActionsOnSave": {
+                "source.organizeImports": "explicit",
+                "source.fixAll.eslint":"explicit",
+                "source.fixAll.tslint": "explicit",
+                "source.fixAll.stylelint": "explicit"
+              },
+              "editor.suggest.snippetsPreventQuickSuggestions": false,
+              "editor.inlineSuggest.enabled": true
+            }
+		}
+	}
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
