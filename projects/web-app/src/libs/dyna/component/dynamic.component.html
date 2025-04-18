@@ -1,8 +1,13 @@
 @let def = componentDef();
 @if (def) {
-  <ng-container *ngComponentOutlet="def.component; inputs: def.inputs; outputs: mappedOutputs(def)">
-    <ng-content />
+  <ng-container
+    [ngComponentOutlet]="def.component"
+    [ngComponentOutletInputs]="def.inputs"
+    [ngComponentOutletOutputs]="mappedOutputs(def)"
+    #instance="ngComponentOutlet"
+  >
   </ng-container>
+  <ng-content />
 } @else {
   <p>WARNING - Component is not registered for {{ componentType }}</p>
 }

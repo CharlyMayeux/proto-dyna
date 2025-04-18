@@ -1,6 +1,7 @@
-import { computed, Directive, inject, Type } from '@angular/core';
+import { computed, Directive, inject, Type, viewChild } from '@angular/core';
 import { ComponentDef, ComponentTypes } from '../abstract';
 import { ComponentService } from './component.service';
+import { NgComponentOutlet } from './ng-component-outlet.directive';
 import { mapOutputs } from './rules';
 
 @Directive({
@@ -9,9 +10,8 @@ import { mapOutputs } from './rules';
 export abstract class BaseDynamicDirective<TValue, TComponent> {
   private readonly _components = inject(ComponentService);
   protected abstract readonly componentType: keyof ComponentTypes;
-  public readonly component = computed(() => this._components.get(this.componentType) as Type<TComponent>);
-
-  public readonly componentDef = computed(() => {
+  protected readonly component = computed(() => this._components.get(this.componentType) as Type<TComponent>);
+  protected readonly componentDef = computed(() => {
     const cmp = this.component();
     if (!cmp) return undefined;
     const def: ComponentDef<TComponent> = {
@@ -19,6 +19,8 @@ export abstract class BaseDynamicDirective<TValue, TComponent> {
     };
     return def;
   });
+
+  protected readonly outlet = viewChild(NgComponentOutlet);
 
   public mappedOutputs(component: ComponentDef<TComponent>): Record<string, (...args: any[]) => unknown> | undefined {
     return mapOutputs(component, this.handleComponentEvent.bind(this));
