@@ -5,4 +5,4 @@ import { RegistryService } from './registry.service';
 @Injectable({
   providedIn: 'root',
 })
-export class ComponentServiceService extends RegistryService<ComponentTypes> {}
+export class ComponentService extends RegistryService<ComponentTypes> {}
