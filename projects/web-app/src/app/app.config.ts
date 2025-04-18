@@ -11,7 +11,7 @@ import {
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideDyna /*withComponentTypes*/ } from '@proto/dyna';
-import { withComponentTypes } from '@proto/ui/materialize-css';
+import { withComponentTypes } from '@proto/ui/skeleton-css';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
