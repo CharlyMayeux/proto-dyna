@@ -1,6 +1,6 @@
 import { computed, Directive, inject, Type } from '@angular/core';
+import { ComponentTypes } from '../abstract';
 import { ComponentService } from './component.service';
-import { ComponentTypes } from './models';
 import { mapOutputs } from './rules';
 
 @Directive({

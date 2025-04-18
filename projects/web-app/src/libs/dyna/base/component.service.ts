@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ComponentTypes } from './models';
+import { ComponentTypes } from '../abstract';
 import { RegistryService } from './registry.service';
 
 @Injectable({
