@@ -62,3 +62,8 @@ For more information on using the Angular CLI, including detailed command refere
 
 see
 <https://www.robododd.com/setting-up-prettier-and-eslint-in-your-angular-project/>
+
+# Tailwind
+
+see
+<https://tailwindcss.com/docs/installation/framework-guides/angular>
