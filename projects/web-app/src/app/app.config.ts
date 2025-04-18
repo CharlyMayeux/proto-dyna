@@ -10,17 +10,25 @@ import {
 
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideDyna } from '@proto/dyna';
-import { ButtonComponent } from '@proto/ui/custom';
+import { provideDyna /*withComponentTypes*/ } from '@proto/dyna';
+import { withComponentTypes } from '@proto/ui/materialize-css';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
-    provideDyna({
-      button: ButtonComponent,
-    }),
+    provideDyna(
+      // From App
+      // withComponentTypes({
+      //   button: ButtonComponent,
+      // })
+      // Custom
+      // Pure CSS
+      // Materialize CSS
+      // Skeleton CSS
+      withComponentTypes()
+    ),
     provideRouter(
       routes,
       withDebugTracing(),

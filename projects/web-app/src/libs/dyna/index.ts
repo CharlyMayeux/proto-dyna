@@ -1,5 +1,4 @@
-export { AbstractButtonComponent } from './abstract';
-export { BaseDynamicDirective } from './base/base-dynamic.directive';
-export { NgComponentOutlet } from './base/ng-component-outlet.directive';
+export { AbstractButtonComponent, type ComponentDef, type ComponentTypes } from './abstract';
+export { BaseDynamicDirective, ComponentService, NgComponentOutlet } from './base';
 export { DynamicButtonComponent } from './component';
-export { provideDyna } from './provider';
+export { DynaFeatureKind, makeDynaFeature, provideDyna, withComponentTypes, type DynaFeature } from './provider';
