@@ -1,2 +1,2 @@
 export { AbstractButtonComponent } from './abstract-button';
-export { type ComponentTypes } from './models';
+export { type ComponentDef, type ComponentTypes } from './models';

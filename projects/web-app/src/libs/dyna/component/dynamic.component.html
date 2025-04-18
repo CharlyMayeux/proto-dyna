@@ -1,0 +1,8 @@
+@let atomDef = componentDef();
+@if (atomDef) {
+  <ng-container *ngComponentOutlet="atomDef.component; inputs: atomDef.inputs; outputs: mappedOutputs(atomDef)">
+    <ng-content />
+  </ng-container>
+} @else {
+  <p>WARNING - Component is not registered for {{ componentType }}</p>
+}

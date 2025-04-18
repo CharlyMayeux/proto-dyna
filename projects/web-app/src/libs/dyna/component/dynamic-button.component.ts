@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { AbstractButtonComponent } from '@proto/dyna/abstract';
-import { BaseDynamicDirective } from '../../base';
+import { AbstractButtonComponent } from '../abstract';
+import { BaseDynamicDirective } from '../base';
 
 @Component({
-  selector: 'app-dynamic-button',
+  selector: 'proto-dynamic-button',
   imports: [],
-  templateUrl: './dynamic-button.component.html',
+  templateUrl: './dynamic.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
@@ -17,6 +17,7 @@ export class DynamicButtonComponent
   implements AbstractButtonComponent
 {
   protected override componentType = 'button';
+
   protected override handleComponentEvent(componentId: string, eventName: string, value: void): void {
     console.debug('[DynamicButtonComponent] - handleComponentEvent', componentId, eventName, value);
   }
