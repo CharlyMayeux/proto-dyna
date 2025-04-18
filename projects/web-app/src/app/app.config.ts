@@ -11,13 +11,16 @@ import {
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideDyna } from '@proto/dyna';
+import { ButtonComponent } from '@proto/ui/custom';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
-    provideDyna(),
+    provideDyna({
+      button: ButtonComponent,
+    }),
     provideRouter(
       routes,
       withDebugTracing(),

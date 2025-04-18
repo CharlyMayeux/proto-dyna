@@ -1,4 +1,12 @@
-import { EnvironmentProviders, makeEnvironmentProviders, Provider } from '@angular/core';
+import {
+  EnvironmentProviders,
+  inject,
+  makeEnvironmentProviders,
+  provideEnvironmentInitializer,
+  Provider,
+} from '@angular/core';
+import { ComponentTypes } from './abstract';
+import { ComponentService } from './base/component.service';
 
 export enum DynaFeatureKind {}
 
@@ -17,8 +25,13 @@ export function makeDynaFeature<KindT extends DynaFeatureKind>(
   };
 }
 
-export function provideDyna(...features: DynaFeature<DynaFeatureKind>[]): EnvironmentProviders {
-  const providers: (Provider | EnvironmentProviders)[] = [];
+export function provideDyna(type: ComponentTypes, ...features: DynaFeature<DynaFeatureKind>[]): EnvironmentProviders {
+  const providers: (Provider | EnvironmentProviders)[] = [
+    provideEnvironmentInitializer(() => {
+      const service = inject(ComponentService);
+      service.registerAll(type);
+    }),
+  ];
   for (const feature of features) {
     providers.push(...feature.providers);
   }

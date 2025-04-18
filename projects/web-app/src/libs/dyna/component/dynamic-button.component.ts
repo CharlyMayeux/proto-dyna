@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { AbstractButtonComponent } from '../abstract';
-import { BaseDynamicDirective } from '../base';
+import { BaseDynamicDirective, NgComponentOutlet } from '../base';
 
 @Component({
   selector: 'proto-dynamic-button',
-  imports: [],
+  imports: [NgComponentOutlet],
   templateUrl: './dynamic.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -7,4 +7,5 @@ export interface ComponentTypes extends Record<string, Type<unknown>> {
 
 export interface ComponentDef<T = unknown> {
   component: Type<T>;
+  inputs?: Record<string, unknown>;
 }

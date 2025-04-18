@@ -1,6 +1,6 @@
-@let atomDef = componentDef();
-@if (atomDef) {
-  <ng-container *ngComponentOutlet="atomDef.component; inputs: atomDef.inputs; outputs: mappedOutputs(atomDef)">
+@let def = componentDef();
+@if (def) {
+  <ng-container *ngComponentOutlet="def.component; inputs: def.inputs; outputs: mappedOutputs(def)">
     <ng-content />
   </ng-container>
 } @else {

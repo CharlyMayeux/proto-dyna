@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { DynamicButtonComponent } from '@proto/dyna';
+import { AbstractButtonComponent } from '@proto/dyna';
 
 @Component({
-  selector: 'app-tests',
-  imports: [DynamicButtonComponent],
-  templateUrl: './tests.component.html',
+  selector: 'app-button',
+  imports: [],
+  templateUrl: './button.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: '',
   },
 })
-export class TestsComponent {}
+export class ButtonComponent implements AbstractButtonComponent {}

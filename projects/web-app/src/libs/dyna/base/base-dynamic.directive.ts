@@ -20,7 +20,7 @@ export abstract class BaseDynamicDirective<TValue, TComponent> {
     return def;
   });
 
-  public mappedOutputs(component: unknown): Record<string, (...args: any[]) => unknown> | undefined {
+  public mappedOutputs(component: ComponentDef<TComponent>): Record<string, (...args: any[]) => unknown> | undefined {
     return mapOutputs(component, this.handleComponentEvent.bind(this));
   }
 
