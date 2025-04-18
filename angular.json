@@ -3,5 +3,157 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "web-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/web-app",
+      "sourceRoot": "projects/web-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/web-app",
+            "index": "projects/web-app/src/index.html",
+            "browser": "projects/web-app/src/main.ts",
+            "polyfills": [],
+            "tsConfig": "projects/web-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/web-app/public"
+              }
+            ],
+            "styles": ["projects/web-app/src/styles.scss"],
+            "scripts": [],
+            "server": "projects/web-app/src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "projects/web-app/src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "web-app:build:production"
+            },
+            "development": {
+              "buildTarget": "web-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [],
+            "tsConfig": "projects/web-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/web-app/public"
+              }
+            ],
+            "styles": ["projects/web-app/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
+  },
+  "schematics": {
+    "@schematics/angular:application": {
+      "experimentalZoneless": true,
+      "routing": true,
+      "ssr": true,
+      "standalone": true,
+      "strict": true,
+      "style": "scss",
+      "viewEncapsulation": "Emulated"
+    },
+    "@schematics/angular:class": {},
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush",
+      "standalone": true,
+      "viewEncapsulation": "Emulated",
+      "style": "scss"
+    },
+    "@schematics/angular:directive": {
+      "standalone": true
+    },
+    "@schematics/angular:enum": {},
+    "@schematics/angular:guard": {
+      "flat": true,
+      "functional": true
+    },
+    "@schematics/angular:interceptor": {
+      "flat": true,
+      "functional": true
+    },
+    "@schematics/angular:interface": {},
+    "@schematics/angular:library": {
+      "standalone": true
+    },
+    "@schematics/angular:ng-new": {
+      "commit": false,
+      "createApplication": false,
+      "experimentalZoneless": true,
+      "packageManager": "yarn",
+      "routing": true,
+      "ssr": true,
+      "standalone": true,
+      "strict": true,
+      "style": "scss",
+      "viewEncapsulation": "Emulated"
+    },
+    "@schematics/angular:pipe": {
+      "standalone": true
+    },
+    "@schematics/angular:resolver": {
+      "flat": true,
+      "functional": true
+    },
+    "@schematics/angular:service": {},
+    "@schematics/angular:web-worker": {}
   }
 }

@@ -57,3 +57,13 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Eslint and prettier
+
+see
+<https://www.robododd.com/setting-up-prettier-and-eslint-in-your-angular-project/>
+
+# Tailwind
+
+see
+<https://tailwindcss.com/docs/installation/framework-guides/angular>
